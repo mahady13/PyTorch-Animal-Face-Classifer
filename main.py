@@ -43,3 +43,5 @@ if image is not None and st.sidebar.button("Predict"):
         name=torch.argmax(predict,axis=1).item()
     label=label_encoder.inverse_transform([name])
     st.success(f"Predicted Animal: {label[0]}")
+else:
+    st.error("Please Upload an Image & Then Click Predict")
