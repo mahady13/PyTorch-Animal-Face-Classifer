@@ -30,3 +30,16 @@ st.title("PyTorch Animal Face Classifier")
 st.text("This app uses Deep Learning (PyTorch) to classify if the given picture is a Cat, Dog, or Wild animal.")
 st.sidebar.title("Upload an Image to Predict Cat/Dog/Wild")
 image=st.sidebar.file_uploader("Upload an image")
+
+if image is not None and st.sidebar.button("Predict"):
+    img=Image.open(image).convert("RGB")
+    image=transform(img)
+    image=image.unsqueeze(0)
+    image=image.to(device)
+    st.image(img, caption="Uploaded Image", width=300)
+
+    with torch.no_grad():
+        predict=model(image)
+        name=torch.argmax(predict,axis=1).item()
+    label=label_encoder.inverse_transform([name])
+    st.success(f"Predicted Animal: {label[0]}")
