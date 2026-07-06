@@ -12,3 +12,19 @@ class MyModel(nn.Module):
         self.flatten=nn.Flatten()
         self.linear = nn.Linear((128 * 16 * 16), 128)
         self.output=nn.Linear(128,3)
+
+    def forward(self,x):
+        x=self.conv1(x)
+        x=self.pooling(x)
+        x=self.relu(x)
+        x=self.conv2(x)
+        x=self.pooling(x)
+        x=self.relu(x)
+        x=self.conv3(x)
+        x=self.pooling(x)
+        x=self.relu(x)
+        x=self.flatten(x)
+        x=self.linear(x)
+        x=self.output(x)
+
+        return x
