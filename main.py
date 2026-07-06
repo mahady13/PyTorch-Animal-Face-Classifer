@@ -28,7 +28,7 @@ transform=transforms.Compose([
 
 st.title("PyTorch Animal Face Classifier")
 st.text("This app uses Deep Learning (PyTorch) to classify if the given picture is a Cat, Dog, or Wild animal.")
-st.sidebar.title("Upload an Image to Predict Cat/Dog/Wild")
+st.sidebar.title("Upload an Image to Predict")
 image=st.sidebar.file_uploader("Upload an image")
 
 if image is not None and st.sidebar.button("Predict"):
