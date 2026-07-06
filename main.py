@@ -26,3 +26,7 @@ transform=transforms.Compose([
     transforms.ConvertImageDtype(torch.float32)
 ])
 
+st.title("PyTorch Animal Face Classifier")
+st.text("This app uses Deep Learning (PyTorch) to classify if the given picture is a Cat, Dog, or Wild animal.")
+st.sidebar.title("Upload an Image to Predict Cat/Dog/Wild")
+image=st.sidebar.file_uploader("Upload an image")
